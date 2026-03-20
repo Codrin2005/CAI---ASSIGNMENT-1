@@ -39,20 +39,11 @@ def build_value_function(spec):
     raise ValueError(f"Unsupported value function type: {kind}")
 
 
-<<<<<<< HEAD
-    results = cartesian_tournament(
-        competitors=competitors,
-        scenarios=[scenario],
-        n_repetitions=5,
-        path=path,
-    )
-=======
 def build_issue(issue_spec):
     values = issue_spec["values"]
     if isinstance(values, list):
         values = tuple(values)
     return make_issue(name=issue_spec["name"], values=values)
->>>>>>> d4d12d2e3dd1d49dd04c6392a10cc249a6e4c3a3
 
 
 def load_scenario(scenario_file: Path):
