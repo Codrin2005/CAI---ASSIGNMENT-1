@@ -31,7 +31,7 @@ if __name__ == '__main__':
     results = cartesian_tournament(
         competitors=competitors,
         scenarios=[scenario],
-        n_repetitions=20,
+        n_repetitions=5,
         path=path,
     )
 
