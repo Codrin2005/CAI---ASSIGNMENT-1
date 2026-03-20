@@ -1,0 +1,28 @@
+{
+  "name": "Simple Price",
+  "issues": [
+    {
+      "name": "price",
+      "values": [0, 50]
+    }
+  ],
+  "agents": [
+    {
+      "reserved_value": 0.0,
+      "values": [
+        {
+          "type": "identity"
+        }
+      ]
+    },
+    {
+      "reserved_value": 0.0,
+      "values": [
+        {
+          "type": "affine",
+          "slope": -1.0
+        }
+      ]
+    }
+  ]
+}

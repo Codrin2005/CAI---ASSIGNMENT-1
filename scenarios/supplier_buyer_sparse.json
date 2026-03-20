@@ -1,0 +1,50 @@
+{
+  "name": "Supplier Buyer Sparse",
+  "issues": [
+    {
+      "name": "unit_price",
+      "values": 30
+    },
+    {
+      "name": "contract_length",
+      "values": 4
+    },
+    {
+      "name": "support_hours",
+      "values": 3
+    }
+  ],
+  "agents": [
+    {
+      "reserved_value": 0.5,
+      "weights": [0.65, 0.2, 0.15],
+      "values": [
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    },
+    {
+      "reserved_value": 0.28,
+      "weights": [0.2, 0.5, 0.3],
+      "values": [
+        {
+          "type": "affine",
+          "slope": -1.0
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Large Space",
+  "issues": [
+    {
+      "name": "price",
+      "values": 12
+    },
+    {
+      "name": "quantity",
+      "values": 10
+    },
+    {
+      "name": "delivery_delay",
+      "values": 8
+    },
+    {
+      "name": "support_level",
+      "values": 6
+    },
+    {
+      "name": "warranty",
+      "values": 5
+    }
+  ],
+  "agents": [
+    {
+      "reserved_value": 0.45,
+      "weights": [0.35, 0.2, 0.15, 0.15, 0.15],
+      "values": [
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "affine",
+          "slope": -1.0
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    },
+    {
+      "reserved_value": 0.4,
+      "weights": [0.15, 0.2, 0.3, 0.15, 0.2],
+      "values": [
+        {
+          "type": "affine",
+          "slope": -1.0
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    }
+  ]
+}

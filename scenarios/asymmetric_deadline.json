@@ -1,0 +1,41 @@
+{
+  "name": "Asymmetric Deadline",
+  "issues": [
+    {
+      "name": "price",
+      "values": 25
+    },
+    {
+      "name": "delivery_time",
+      "values": 12
+    }
+  ],
+  "agents": [
+    {
+      "reserved_value": 0.55,
+      "weights": [0.75, 0.25],
+      "values": [
+        {
+          "type": "identity"
+        },
+        {
+          "type": "affine",
+          "slope": -1.0
+        }
+      ]
+    },
+    {
+      "reserved_value": 0.2,
+      "weights": [0.2, 0.8],
+      "values": [
+        {
+          "type": "affine",
+          "slope": -1.0
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    }
+  ]
+}

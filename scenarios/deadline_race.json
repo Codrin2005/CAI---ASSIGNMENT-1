@@ -1,0 +1,51 @@
+{
+  "name": "Deadline Race",
+  "issues": [
+    {
+      "name": "price",
+      "values": 16
+    },
+    {
+      "name": "deadline",
+      "values": 16
+    },
+    {
+      "name": "quality",
+      "values": 10
+    }
+  ],
+  "agents": [
+    {
+      "reserved_value": 0.48,
+      "weights": [0.45, 0.35, 0.2],
+      "values": [
+        {
+          "type": "identity"
+        },
+        {
+          "type": "affine",
+          "slope": -1.0
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    },
+    {
+      "reserved_value": 0.32,
+      "weights": [0.2, 0.5, 0.3],
+      "values": [
+        {
+          "type": "affine",
+          "slope": -1.0
+        },
+        {
+          "type": "identity"
+        },
+        {
+          "type": "identity"
+        }
+      ]
+    }
+  ]
+}
