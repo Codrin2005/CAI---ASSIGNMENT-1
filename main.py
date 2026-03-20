@@ -8,31 +8,42 @@ from negmas.preferences.value_fun import IdentityFun, AffineFun
 from negmas.outcomes.outcome_space import make_os
 from negmas.inout import Scenario
 from pathlib import Path
+from my_negotiator import MyNegotiator
 
 if __name__ == '__main__':
-    issues = [make_issue(name="price", values=50)]
+    issues = [make_issue(name="price", values=(0, 50))]
     os = make_os(issues=issues)
+    path = Path.home()
 
-    path = Path.home() / "negmas_results"
+    seller_utility = UFun(
+        values=[IdentityFun()],   # utility = price
+        outcome_space=os,
+        reserved_value=0.0
+    )
 
-    seller_utility = UFun(values=[IdentityFun()], outcome_space=os, reserved_value=0.0)
-    buyer_utility = UFun(values=[AffineFun(slope=-1)], outcome_space=os, reserved_value=0.0)
+    buyer_utility = UFun(
+        values=[AffineFun(slope=-1, bias=50)],  # utility = 50 - price
+        outcome_space=os,
+        reserved_value=0.0
+    )
 
     seller_utility = seller_utility.normalize()
     buyer_utility = buyer_utility.normalize()
 
     scenario = Scenario(
         outcome_space=os,
-        ufuns=[seller_utility, buyer_utility],
+        ufuns=[seller_utility, buyer_utility]
     )
 
-    competitors = [Boulware, Linear, NaiveTitForTatNegotiator]
+    competitors = [Boulware, Linear, MyNegotiator]
 
     results = cartesian_tournament(
         competitors=competitors,
         scenarios=[scenario],
-        n_repetitions=5,
+        n_repetitions=2,
+        n_steps=50,
         path=path,
+        time_limit=2
     )
 
     print(results)
