@@ -25,8 +25,8 @@ if __name__ == "__main__":
     buyer_ufun = UFun(values=[AffineFun(slope=-1, bias=50)], outcome_space=os).normalize()
     scenario = Scenario(outcome_space=os, ufuns=[seller_ufun, buyer_ufun])
 
-    competitors = [Boulware, Linear, Group34_Negotiator, Naive, Hybrid, micro]
-    competitors2 = [Group34_Negotiator_Hybrid, Group34_Negotiator]
+    competitors = [Boulware, Linear, Naive, Hybrid, Group34_Negotiator_Hybrid]
+    competitors2 = [Boulware, Group34_Negotiator]
 
     results = cartesian_tournament(
         competitors=competitors,
