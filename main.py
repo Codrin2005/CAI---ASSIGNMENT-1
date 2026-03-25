@@ -12,6 +12,7 @@ from negmas.sao.negotiators import MiCRONegotiator as micro
 from negmas.tournaments.neg import cartesian_tournament
 from Group34_Negotiator_boulware import Group34_Negotiator  # top-level import
 from Group34_Negotiator_hybrid import Group34_Negotiator_Hybrid
+from Group34_Negotiator_BOA import Group34_Negotiator_BOA
 
 def my_agent_factory(ufun):
     return Group34_Negotiator(ufun=ufun)
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     buyer_ufun = UFun(values=[AffineFun(slope=-1, bias=50)], outcome_space=os).normalize()
     scenario = Scenario(outcome_space=os, ufuns=[seller_ufun, buyer_ufun])
 
-    competitors = [Boulware, Linear, Naive, Hybrid, Group34_Negotiator_Hybrid]
+    competitors = [Boulware, Naive, Hybrid, Group34_Negotiator_BOA, Group34_Negotiator_Hybrid, Group34_Negotiator]
     competitors2 = [Boulware, Group34_Negotiator]
 
     results = cartesian_tournament(
